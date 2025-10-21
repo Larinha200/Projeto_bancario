@@ -5,7 +5,7 @@ clientee={}
 
 match resp:
     case 1:
-        pass
+        cadastrar_cliente()
     case 2:
         match  resp:
             case 1:
