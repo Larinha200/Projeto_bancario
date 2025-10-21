@@ -7,7 +7,7 @@ match menu_login():
     
     case 1:
         menu_cadastro()
-        cadastrar_cliente(nome, cpf, telefone, senha, endereco, clientes)
+        cadastrar_cliente(nome, cpf, telefone, senha, endereco)
         
     case 2:
         

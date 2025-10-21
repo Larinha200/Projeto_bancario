@@ -2,7 +2,7 @@ from classes import *
 
 def menu_login():
     print("1- Cadastro \n2- Login na conta corrente \n3- Login na conta poupança")
-    resposta_login = int(input())
+    resposta_login = int(input("--->"))
     return resposta_login
     
 def menu_principal():
