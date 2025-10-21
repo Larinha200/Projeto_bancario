@@ -6,7 +6,7 @@ def menu_login():
     return resposta_login
     
 def menu_principal():
-    print("1- Cadastro \n3- Contas \n4- Depósito \n5- Saque \n6- Tranferência entre contas \n7- Conslta de saldo \n8- Consulta de extrato ")
+    print("1- Cadastro \n2- Contas \n3- Depósito \n4- Saque \n5- Tranferência entre contas \n6- Consulta de saldo \n7- Consulta de extrato ")
 
 def menu_cadastro(clientes):
     print("\n=== CADASTRO DE CLIENTE ===")

@@ -1,5 +1,5 @@
 from funcion import*
-
+from classes import*
 
 
 clientes = {}
@@ -8,7 +8,7 @@ while True:
         
         case 1:
             menu_cadastro(clientes)
-            
+  
         case 2:
             
             match  menu_principal():
@@ -17,15 +17,15 @@ while True:
                 case 2:
                     pass
                 case 3:
-                    pass
+                    depositar(Conta)
                 case 4:
-                    pass
+                    sacar(Conta)
                 case 5:
-                    pass
+                    transferir(Conta)
                 case 6:
-                    pass
+                    consultar_saldo(Conta)
                 case 7:
-                    pass
+                    mostrar_extrato(Conta)
                 case 8:
                     pass
                 case _:
@@ -38,15 +38,15 @@ while True:
                 case 2:
                     pass
                 case 3:
-                    pass
+                    depositar(Conta)
                 case 4:
-                    pass
+                    sacar(Conta)
                 case 5:
-                    pass
+                    transferir(Conta)
                 case 6:
-                    pass
+                    consultar_saldo(Conta)
                 case 7:
-                    pass
+                    mostrar_extrato(Conta)
                 case 8:
                     pass
                 case _:
