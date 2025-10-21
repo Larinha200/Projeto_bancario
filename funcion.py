@@ -8,7 +8,7 @@ def menu_login():
 def menu_principal():
     print("1- Cadastro \n3- Contas \n4- Depósito \n5- Saque \n6- Tranferência entre contas \n7- Conslta de saldo \n8- Consulta de extrato ")
 
-def menu_cadastro():
+def menu_cadastro(clientes):
     print("\n=== CADASTRO DE CLIENTE ===")
     nome = input("Nome completo: ")
     cpf = int(input("CPF (somente números): "))
