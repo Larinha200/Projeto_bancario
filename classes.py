@@ -45,10 +45,12 @@ class Cliente(Conta, ABC):
     def add_conta(self, conta):
         return self.__contas.append(conta)
     
-    def cadastro(nome, cpf,telefone, endereço, senha, id):
-        id +=1
-        cliente= Cliente(nome,cpf, telefone, endereço,senha)
-        return cliente
+    def cadastrar_cliente(nome, cpf, telefone,  senha, endereco, clientes):
+        novo_cliente = Cliente(nome, cpf, telefone, endereco, senha, id)
+        clientes[novo_cliente.getId()] = novo_cliente
+        return novo_cliente
+
+        
 
 
 class Extrato:
