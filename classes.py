@@ -13,6 +13,9 @@ class Cliente(Conta, ABC):
         self.__cpf = cpf
         self.__contas = []
 
+    def cadastro():
+        pass
+
 #GETS para acessar atributos privados da classe cliente
     def getNome(self):
         return self.__nome
