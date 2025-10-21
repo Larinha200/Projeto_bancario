@@ -14,7 +14,8 @@ def menu_cadastro(clientes):
     cpf = int(input("CPF (somente números): "))
     telefone = int(input("Telefone (somente números): "))
     endereco = input("Endereço: ")
+    nascimento = input("Nascimento:")
     senha = input("Senha: ")
 
-    cliente = cadastrar_cliente(nome, cpf, telefone, endereco, senha, clientes)
+    cliente = cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
     return cliente
