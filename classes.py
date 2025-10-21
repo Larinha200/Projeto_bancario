@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod #importar a biblioteca ABC
 
 #criação das classes 
-class Cliente(ABC):
+class Cliente:
 
     def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereço:str, id:0, nascimento:int):
         self.__id = id
