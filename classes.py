@@ -2,18 +2,40 @@ from abc import ABC, abstractmethod #importar a biblioteca ABC
 
 #criação das classes 
 class Banco:
-    pass
+    def __init__(self):
+         pass
+    novo_cliente= {}
+    
+    @staticmethod
+    def cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes):
+        # Se CPF já cadastrado
+        if cpf in clientes:
+            print(f"\n Já existe um cliente com o CPF {cpf} cadastrado!")
+            return clientes[cpf]
 
-class Cliente:
+        # Cria e adiciona novo cliente
+        novo_cliente = Cliente(nome, cpf, telefone, senha, endereco, nascimento)
+        clientes[cpf] = novo_cliente
+        return novo_cliente
+    
+    def listar():
+        pass
+        
 
-    def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereco:str,nascimento:int, id:0 ):
-        self.__id = id
+
+class Cliente(Banco):
+    count = 0
+    def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereco:str,nascimento:int ):
+        Cliente.count += 1
+        self.__id = Cliente.count
+        
         self.__nome = nome
         self.__cpf = cpf
         self.__telefone = telefone
         self.__endereco = endereco
         self.__nascimento = nascimento
         self.__senha = senha
+        super().__init__()
         
 
 #GETS para acessar atributos privados da classe cliente
@@ -41,12 +63,6 @@ class Cliente:
     def getNascimento(self):
         return self.__nascimento
     
-    
-    @staticmethod #indica que não é preciso criar um objeto da classe para usar o método.
-    def cadastrar_cliente(nome, cpf, telefone,  senha, endereco, nascimento,id, clientes):
-        novo_cliente = Cliente(nome, cpf, telefone, senha, endereco, nascimento,id)
-        clientes[novo_cliente.getId()] = novo_cliente
-        return novo_cliente
 
 class OperacoesFinanceiras(ABC):
     @abstractmethod
@@ -66,13 +82,15 @@ class Extrato:
     def __init__(self):
         self.__transacoes = []
 
+    # Adiciona um dicionário com os detalhes da transacao à lista de transacoes
     def registrar(self, tipo: str, valor: float, saldo: float):
         self.__transacoes.append({
-            'tipo': tipo,
-            'valor': valor,
-            'saldo': saldo
+            'tipo': tipo, # Tipo da transação (depósito, saque, etc.)
+            'valor': valor, # Valor da transação
+            'saldo': saldo # Saldo atual após a transação
         })
 
+    #Exibe todas as transações registradas no extrato
     def mostrar(self):
         for transacao in self.__transacoes:
             return (f"{transacao['tipo']}: R${transacao['valor']:.2f} | Saldo: R${transacao['saldo']:.2f}")
@@ -129,7 +147,6 @@ class Conta(OperacoesFinanceiras):
         return False
 
     # Sobrecarga de método para consultar saldo da conta
-    #dar uma alterada nessa parte (onde encaixar essa questão )
     def consultar_saldo(self, formatado: bool = False):
         if formatado:
             return (f"Saldo da conta {self.__numero}: R${self.__saldo:.2f}")

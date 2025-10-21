@@ -51,6 +51,8 @@ while True:
                     pass
                 case _:
                     pass
-            
+        case 4:
+            listar_clientes(clientes)
+    
         case _ :
             pass

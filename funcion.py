@@ -14,8 +14,25 @@ def menu_cadastro(clientes):
     cpf = int(input("CPF (somente números): "))
     telefone = int(input("Telefone (somente números): "))
     endereco = input("Endereço: ")
-    nascimento = input("Nascimento:")
+    nascimento = input("Data de nascimento (DD/MM/AAAA): ")
     senha = input("Senha: ")
-
-    cliente = Cliente.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, id, clientes)
+    cliente = Banco.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
     return cliente
+    
+   
+
+def listar_clientes(clientes):
+    if not clientes:
+        print("\n⚠️ Nenhum cliente cadastrado ainda.\n")
+        return
+
+    print("\n=== LISTA DE CLIENTES CADASTRADOS ===")
+    for _, cliente in clientes.items():
+        print(f"\nID: {cliente.getId()}")
+        print(f"Nome: {cliente.getNome()}")
+        print(f"CPF: {cliente.getCpf()}")
+        print(f"Telefone: {cliente.getTelefone()}")
+        print(f"Endereço: {cliente.getEndereco()}")
+        print(f"Nascimento: {cliente.getNascimento()}")
+        print(f"Senha: {cliente.getSenha()}")
+        print("-" * 40)
