@@ -11,7 +11,7 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 ### Requisitos técnicos  →
 
 → Classes e Objetos: 
-→ Encapsulamento: É um conceito de programação orientada a objetos que agrupa dados (atributos) e os métodos que operam sobre eles em uma única unidade (classe),
+<br> → Encapsulamento: É um conceito de programação orientada a objetos que agrupa dados (atributos) e os métodos que operam sobre eles em uma única unidade (classe),
 → Herança: Herança é um pilar da programação orientada a objetos (POO) que permite que uma classe (filha) reutilize atributos e métodos de outra classe (pai)
 → Polimorfismo: É a capacidade de objetos de diferentes classes serem tratados de maneira uniforme, usando uma interface ou método comum. 
 → Abstração: Classes abstratas servem como um molde (blueprint) para outras classes
