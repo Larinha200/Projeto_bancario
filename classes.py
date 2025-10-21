@@ -20,9 +20,6 @@ class Cliente(Conta, ABC):
         self.__contas = []
 
 #GETS para acessar atributos privados da classe cliente
-    def getId(self):
-        return self.__id
-    
     def getNome(self):
         return self.__nome
     
