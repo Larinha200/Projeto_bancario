@@ -8,13 +8,15 @@ class Conta(ABC):
     pass
 
 class Cliente(Conta, ABC):
-    def __init__(self, nome: str, cpf):
+
+    def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endreço:str, id:0):
+        self.__id = id
         self.__nome = nome
         self.__cpf = cpf
+        self.__telefone = telefone
+        self.__enderço = endreço
+        self.__senha = senha
         self.__contas = []
-
-    def cadastro():
-        pass
 
 #GETS para acessar atributos privados da classe cliente
     def getNome(self):
@@ -29,6 +31,11 @@ class Cliente(Conta, ABC):
     #Def para adicionar conta
     def add_conta(self, conta):
         return self.__contas.append(conta)
+    
+    def cadastro(nome, cpf,telefone, endereço, senha, id):
+        id +=1
+        cliente= Cliente(nome,cpf, telefone, endereço,senha)
+        return cliente
 
 
 class Extrato:
