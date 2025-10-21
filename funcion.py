@@ -1,4 +1,6 @@
 def menu_login():
-    return "1- Cadastro \n2- Login na conta corrente \n3- Login na conta poupança"
+    print("1- Cadastro \n2- Login na conta corrente \n3- Login na conta poupança")
+    
 def menu_principal():
-    return "1- Cadastro \n3- Contas \n4- Depósito \n5- Saque \n6- Tranferência entre contas \n7- Conslta de saldo \n8- Consulta de extrato "
+    print("1- Cadastro \n3- Contas \n4- Depósito \n5- Saque \n6- Tranferência entre contas \n7- Conslta de saldo \n8- Consulta de extrato ")
+   

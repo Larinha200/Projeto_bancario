@@ -1,4 +1,7 @@
+from funcion import*
+
 resp= input("") # variavel simbolica, é para o macth n dar erro
+
 match resp:
     case 1:
         pass
