@@ -17,5 +17,5 @@ def menu_cadastro(clientes):
     nascimento = input("Nascimento:")
     senha = input("Senha: ")
 
-    cliente = cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
+    cliente = Cliente.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
     return cliente

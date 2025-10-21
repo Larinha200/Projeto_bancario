@@ -3,12 +3,12 @@ from abc import ABC, abstractmethod #importar a biblioteca ABC
 #criação das classes 
 class Cliente:
 
-    def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereço:str, id:0, nascimento:int):
+    def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereco:str, id:0, nascimento:int):
         self.__id = id
         self.__nome = nome
         self.__cpf = cpf
         self.__telefone = telefone
-        self.__endereço = endereço
+        self.__endereco = endereco
         self.__nascimento = nascimento
         self.__senha = senha
         self.__contas = []
@@ -33,7 +33,7 @@ class Cliente:
         return self.__senha 
     
     def getEndereco(self):
-        return self.__endereço
+        return self.__endereco
     
     def getNascimento(self):
         return self.__nascimento
@@ -50,7 +50,7 @@ class Cliente:
 class OperacoesFinanceiras(ABC):
     pass
 
-class Conta(OperacoesFinanceiras, ABC):
+class Conta(OperacoesFinanceiras):
     def __init__(self, numero: int, cliente: Cliente):
         self.__numero = numero
 
