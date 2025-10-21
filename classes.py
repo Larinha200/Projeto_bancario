@@ -1,6 +1,9 @@
 from abc import ABC, abstractmethod #importar a biblioteca ABC
 
 #criação das classes 
+class Banco:
+    pass
+
 class Cliente:
 
     def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereco:str,nascimento:int, id:0 ):
@@ -11,7 +14,7 @@ class Cliente:
         self.__endereco = endereco
         self.__nascimento = nascimento
         self.__senha = senha
-        self.__contas = []
+        
 
 #GETS para acessar atributos privados da classe cliente
     def getId(self):
@@ -38,9 +41,6 @@ class Cliente:
     def getNascimento(self):
         return self.__nascimento
     
-    #Def para adicionar conta
-    def add_conta(self, conta):
-        return self.__contas.append(conta)
     
     @staticmethod #indica que não é preciso criar um objeto da classe para usar o método.
     def cadastrar_cliente(nome, cpf, telefone,  senha, endereco, nascimento,id, clientes):
@@ -63,14 +63,28 @@ class OperacoesFinanceiras(ABC):
     
     
 class Extrato:
-    pass
+    def __init__(self):
+        self.__transacoes = []
+
+    def registrar(self, tipo: str, valor: float, saldo: float):
+        self.__transacoes.append({
+            'tipo': tipo,
+            'valor': valor,
+            'saldo': saldo
+        })
+
+    def mostrar(self):
+        for transacao in self.__transacoes:
+            return (f"{transacao['tipo']}: R${transacao['valor']:.2f} | Saldo: R${transacao['saldo']:.2f}")
 
 class Conta(OperacoesFinanceiras):
-    def __init__(self, numero: int, cliente: Cliente):
+    def __init__(self, conta, numero: int, cliente: Cliente):
+        self.__conta = conta
         self.__numero = numero
         self.__cliente = cliente
         self.__saldo = 0.0
         self.__extrato = Extrato()
+        super().__init__()
     
     #GETS para acessar atributos privados da classe conta
     def getNumero(self):
@@ -81,6 +95,11 @@ class Conta(OperacoesFinanceiras):
     
     def getSaldo(self):
         return self.__saldo
+    
+    #Def para adicionar conta
+    def add_conta(self, conta):
+        return self.__contas.append(conta)
+    
 
     #mostrar extrato da conta
     def mostrar_extrato(self):
@@ -93,7 +112,7 @@ class Conta(OperacoesFinanceiras):
             self.__saldo += valor
             self.__extrato.registrar("Depósito", valor, self.__saldo)
         else:
-            print("Valor de depósito inválido.")
+            ("Valor de depósito inválido.")
 
     #metodo abstrato para sacar
     @abstractmethod
@@ -102,26 +121,49 @@ class Conta(OperacoesFinanceiras):
 
     #transferir saldo para uma conta
     def transferir(self, destino, valor: float):
-        if self.sacar(valor):
+        if self.__sacar(valor):
             destino.depositar(valor)
             self.__extrato.registrar(f"Transferência para conta {destino.numero}", -valor, self.__saldo)
-            destino.Conta__extrato.registrar(f"Transferência recebida de conta {self.__numero}", valor, destino.saldo)
+            destino.__Conta_extrato.registrar(f"Transferência recebida de conta {self.__numero}", valor, destino.saldo)
             return True
         return False
 
     # Sobrecarga de método para consultar saldo da conta
+    #dar uma alterada nessa parte (onde encaixar essa questão )
     def consultar_saldo(self, formatado: bool = False):
         if formatado:
-            return f"Saldo da conta {self.__numero}: R${self.__saldo:.2f}"
+            return (f"Saldo da conta {self.__numero}: R${self.__saldo:.2f}")
         else:
-            return self.__saldo
+            return self.__saldo()
 
 
 class ContaCorrente(Conta):
-    pass
+    def __init__(self, numero, cliente):
+        super().__init__(numero, cliente)
+
+    #sacar valor na conta
+    def sacar(self, valor: float):
+        if valor <= self.__saldo and valor > 0:
+            self.__Conta_saldo -= valor
+            self.__Conta_extrato.registrar("Saque", valor, self.__saldo)
+            return True
+        else:
+            ("Saldo insuficiente ou valor inválido para saque.")
+            return False
+
 
 class ContaPoupanca(Conta):
-    pass
+    def __init__(self, numero, cliente):
+        super().__init__(numero, cliente)
 
-class Banco:
-    pass
+    SALDO_MINIMO = 100.0
+
+    #sacar por saldo minimo na conta
+    def sacar(self, valor: float):
+        if valor > 0 and (self.__saldo - valor) >= self.SALDO_MINIMO:
+            self.__Conta_saldo -= valor
+            self.__Conta_extrato.registrar("Saque", valor, self.__saldo)
+            return True
+        else:
+            (f"Não é permitido sacar. Saldo mínimo de R$ {self.SALDO_MINIMO:.2f} deve ser mantido.")
+            return False
