@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod, staticmethod #importar a biblioteca ABC
+from abc import ABC, abstractmethod #importar a biblioteca ABC
 
 #criação das classes 
 class Cliente:
@@ -42,9 +42,9 @@ class Cliente:
     def add_conta(self, conta):
         return self.__contas.append(conta)
     
-    @staticmethod
-    def cadastrar_cliente(nome, cpf, telefone,  senha, endereco, nascimento, clientes):
-        novo_cliente = Cliente(nome, cpf, telefone, senha, endereco, nascimento)
+    @staticmethod #indica que não é preciso criar um objeto da classe para usar o método.
+    def cadastrar_cliente(nome, cpf, telefone,  senha, endereco, nascimento,id, clientes):
+        novo_cliente = Cliente(nome, cpf, telefone, senha, endereco, nascimento,id)
         clientes[novo_cliente.getId()] = novo_cliente
         return novo_cliente
 
