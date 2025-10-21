@@ -1,13 +1,7 @@
 from abc import ABC, abstractmethod #importar a biblioteca ABC
 
 #criação das classes 
-class Banco:
-    pass
-
-class Conta(ABC):
-    pass
-
-class Cliente(Conta, ABC):
+class Cliente(ABC):
 
     def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereço:str, id:0, nascimento:int):
         self.__id = id
@@ -53,8 +47,10 @@ class Cliente(Conta, ABC):
         clientes[novo_cliente.getId()] = novo_cliente
         return novo_cliente
 
-        
 
+class Conta(ABC):
+    def __init__(self, numero: int, cliente: Cliente):
+        self.__numero = numero
 
 class Extrato:
     pass
@@ -63,4 +59,7 @@ class ContaCorrente(Conta):
     pass
 
 class ContaPoupanca(Conta):
+    pass
+
+class Banco:
     pass
