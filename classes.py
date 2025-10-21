@@ -14,7 +14,7 @@ class Cliente(Conta, ABC):
         self.__nome = nome
         self.__cpf = cpf
         self.__telefone = telefone
-        self.__enderço = endreço
+        self.__endereço = endreço
         self.__senha = senha
         self.__contas = []
 
@@ -27,6 +27,15 @@ class Cliente(Conta, ABC):
     
     def getContas(self):
         return self.__contas
+    
+    def getTelefone(self):
+        return self.__telefone
+    
+    def getSenha(self):
+        return self.__senha 
+    
+    def getEndereco(self):
+        return self.__endereço
     
     #Def para adicionar conta
     def add_conta(self, conta):
