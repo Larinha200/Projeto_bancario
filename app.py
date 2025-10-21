@@ -1,6 +1,7 @@
 from funcion import*
 
 resp= input("") # variavel simbolica, é para o macth n dar erro
+clientee={}
 
 match resp:
     case 1:

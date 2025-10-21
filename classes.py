@@ -9,13 +9,12 @@ class Conta(ABC):
 
 class Cliente(Conta, ABC):
 
-    def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereço:str, id:0, nascimento:int):
+    def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endreço:str, id:0):
         self.__id = id
         self.__nome = nome
         self.__cpf = cpf
         self.__telefone = telefone
-        self.__endereço = endereço
-        self.__nascimento = nascimento
+        self.__enderço = endreço
         self.__senha = senha
         self.__contas = []
 
@@ -29,26 +28,16 @@ class Cliente(Conta, ABC):
     def getContas(self):
         return self.__contas
     
-    def getTelefone(self):
-        return self.__telefone
-    
-    def getSenha(self):
-        return self.__senha 
-    
-    def getEndereco(self):
-        return self.__endereço
-    
-    def getNascimento(self):
-        return self.__nascimento
-    
     #Def para adicionar conta
     def add_conta(self, conta):
         return self.__contas.append(conta)
     
-    def cadastro(nome, cpf,telefone, endereço, senha, id):
-        id +=1
-        cliente= Cliente(nome,cpf, telefone, endereço,senha)
-        return cliente
+    clientes = {}  # dicionário global para armazenar os clientes
+
+def cadastrar_cliente(nome, cpf, telefone, endereco, senha, clientes):
+    novo_cliente = Cliente(nome, cpf, telefone, endereco, senha)
+    clientes[novo_cliente.getId()] = novo_cliente
+    return novo_cliente
 
 
 class Extrato:
