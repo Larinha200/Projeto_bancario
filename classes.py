@@ -42,15 +42,18 @@ class Cliente(ABC):
     def add_conta(self, conta):
         return self.__contas.append(conta)
     
-    def cadastrar_cliente(nome, cpf, telefone,  senha, endereco, nascimento, clientes):
+    def cadastrar_cliente(self,nome, cpf, telefone,  senha, endereco, nascimento, clientes):
         novo_cliente = Cliente(nome, cpf, telefone, senha, endereco, nascimento)
         clientes[novo_cliente.getId()] = novo_cliente
         return novo_cliente
 
+class OperacoesFinanceiras(ABC):
+    pass
 
-class Conta(ABC):
+class Conta(OperacoesFinanceiras, ABC):
     def __init__(self, numero: int, cliente: Cliente):
         self.__numero = numero
+
 
 class Extrato:
     pass
