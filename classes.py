@@ -19,6 +19,9 @@ class Cliente(Conta, ABC):
         self.__contas = []
 
 #GETS para acessar atributos privados da classe cliente
+    def getId(self):
+        return self.__id
+    
     def getNome(self):
         return self.__nome
     
@@ -35,7 +38,7 @@ class Cliente(Conta, ABC):
     clientes = {}  # dicionário global para armazenar os clientes
 
 def cadastrar_cliente(nome, cpf, telefone,  senha, endereco, clientes):
-    novo_cliente = Cliente(nome, cpf, telefone, endereco, senha)
+    novo_cliente = Cliente(nome, cpf, telefone, endereco, senha, id)
     clientes[novo_cliente.getId()] = novo_cliente
     return novo_cliente
 
