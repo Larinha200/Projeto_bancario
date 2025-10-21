@@ -12,27 +12,27 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 
 → Classes e Objetos: 
 <br> → Encapsulamento: É um conceito de programação orientada a objetos que agrupa dados (atributos) e os métodos que operam sobre eles em uma única unidade (classe),
-→ Herança: Herança é um pilar da programação orientada a objetos (POO) que permite que uma classe (filha) reutilize atributos e métodos de outra classe (pai)
-→ Polimorfismo: É a capacidade de objetos de diferentes classes serem tratados de maneira uniforme, usando uma interface ou método comum. 
-→ Abstração: Classes abstratas servem como um molde (blueprint) para outras classes
-→ Associação: Os objetos estão conectados, mas existem de forma independente. Um objeto pode interagir com o outro, mas sua existência não depende dele.
-→ Agregação:  Um objeto "todo" é composto por outros objetos "parte", mas as partes podem existir independentemente do todo
-→ Composição:  O objeto "parte" não pode existir sem o objeto "todo"
-→ Sobrecarga de métodos: sobrecarga de método significa ter vários métodos com o mesmo nome numa classe, mas com assinaturas diferentes (parâmetros diferentes)
-→ Interfaces: 
+<br> → Herança: Herança é um pilar da programação orientada a objetos (POO) que permite que uma classe (filha) reutilize atributos e métodos de outra classe (pai)
+<br> → Polimorfismo: É a capacidade de objetos de diferentes classes serem tratados de maneira uniforme, usando uma interface ou método comum. 
+<br> → Abstração: Classes abstratas servem como um molde (blueprint) para outras classes
+<br> → Associação: Os objetos estão conectados, mas existem de forma independente. Um objeto pode interagir com o outro, mas sua existência não depende dele.
+<br> → Agregação:  Um objeto "todo" é composto por outros objetos "parte", mas as partes podem existir independentemente do todo
+<br> → Composição:  O objeto "parte" não pode existir sem o objeto "todo"
+<br> → Sobrecarga de métodos: sobrecarga de método significa ter vários métodos com o mesmo nome numa classe, mas com assinaturas diferentes (parâmetros diferentes)
+<br> → Interfaces: 
 
 ### Porque foram utilizados (resumo) →
 
 ✩ Classes e Objetos:
-✩ Encapsulamento:
-✩ Herança:
-✩ Polimorfismo:
-✩ Abstração:
-✩ Associação:
-✩ Agregação:
-✩ Composição:
-✩ Sobrecarga de métodos:
-✩ Interfaces: 
+<br> ✩ Encapsulamento:
+<br> ✩ Herança:
+<br> ✩ Polimorfismo:
+<br> ✩ Abstração:
+<br> ✩ Associação:
+<br> ✩ Agregação:
+<br> ✩ Composição:
+<br> ✩ Sobrecarga de métodos:
+<br> ✩ Interfaces: 
 
 ![Image](https://github.com/user-attachments/assets/ba2b7ec5-1107-4e15-813a-ff9b4e3f859c)
 
