@@ -1,10 +1,10 @@
 from funcion import*
 
 
-resp= input("") # variavel simbolica, é para o macth n dar erro
 
 
 match menu_login():
+    
     case 1:
         menu_cadastro()
         cadastrar_cliente()
