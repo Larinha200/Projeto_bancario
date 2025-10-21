@@ -10,10 +10,10 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 
 ### Requisitos técnicos  →
 
-→ ***Classes e Objetos:*** 
+→ ***Classes e Objetos:***  
 <br> → ***Encapsulamento:*** É um conceito de programação orientada a objetos que agrupa dados (atributos) e os métodos que operam sobre eles em uma única unidade (classe),
-<br> → ***Herança:*** Herança é um pilar da programação orientada a objetos (POO) que permite que uma classe (filha) reutilize atributos e métodos de outra classe (pai)
-<br> → ***Polimorfismo:*** É a capacidade de objetos de diferentes classes serem tratados de maneira uniforme, usando uma interface ou método comum. 
+<br><br> → ***Herança:*** Herança é um pilar da programação orientada a objetos (POO) que permite que uma classe (filha) reutilize atributos e métodos de outra classe (pai)
+<br><br> → ***Polimorfismo:*** É a capacidade de objetos de diferentes classes serem tratados de maneira uniforme, usando uma interface ou método comum. 
 <br> → ***Abstração:*** Classes abstratas servem como um molde (blueprint) para outras classes
 <br> → ***Associação:*** Os objetos estão conectados, mas existem de forma independente. Um objeto pode interagir com o outro, mas sua existência não depende dele.
 <br> → ***Agregação:***  Um objeto "todo" é composto por outros objetos "parte", mas as partes podem existir independentemente do todo
@@ -57,4 +57,4 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 ![Image](https://github.com/user-attachments/assets/ba2b7ec5-1107-4e15-813a-ff9b4e3f859c)
 
 
-## Explicação do código em partes → ✩ app.py
+### Explicação do código em partes → ✩ app.py
