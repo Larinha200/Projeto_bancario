@@ -42,20 +42,26 @@ def cadastro_conta():
     pass
 
 def login_cliente(clientes):
-    print("\n=== LOGIN ===")
-    cpf = int(input("Digite seu CPF: "))
-    senha = input("Digite sua senha: ")
+    while True:
+        print("\n=== LOGIN ===")
+        cpf = int(input("Digite seu CPF: "))
+        senha = input("Digite sua senha: ")
 
-    # Verifica se o cliente existe
-    cliente = clientes.get(cpf)
-    if not cliente:
-        print("⚠️ CPF não encontrado. Faça o cadastro primeiro.")
-        return None
-
-    # Verifica a senha
-    if cliente.getSenha() != senha:
-        print("❌ Senha incorreta.")
-        return None
-
-    print(f"\n✅ Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
+        try:
+            # Verifica se o cliente existe
+            cliente = clientes.get(cpf)
+            if not cliente:
+                print(" CPF não encontrado. Faça o cadastro primeiro.")
+        except:
+            pass #colocar a cpf e testar de novo
+        
+        try:
+            # Verifica a senha
+            if cliente.getSenha() != senha:
+                print(" Senha incorreta.")
+        except:
+            pass #colocar a senha e tentar de novo
+            
+        print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
+        break
 
