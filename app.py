@@ -7,6 +7,9 @@ while True:
     match menu_login():
         case 1:
             menu_cadastro(clientes)
+            
+        case 2:
+            login_cliente(clientes)
             match menu_conta():
                 #Login na conta corrente 
                 case 1:  
@@ -53,7 +56,13 @@ while True:
                 case 3:
                     #cadastrar conta
                     listar_clientes(clientes)#tirar essa função daqui
-        case 2:
-            login_cliente(clientes)
+
+                case 0:
+                    break
+                case _ :
+                    pass
+        case 0:
+            print("Obrigada por usar nosso banco =)")
+            break
         case _ :
             pass

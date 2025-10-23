@@ -1,12 +1,12 @@
 from classes import *
 
 def menu_login():
-    print("1- Cadastro \n2- Login ")
+    print("1- Cadastro \n2- Login \n3- sair")
     resposta_login = int(input("--->"))
     return resposta_login
 
 def menu_conta():
-    print("1- Login na conta corrente \n2-Login na conta poupança \n3-Cadastar conta")
+    print("1- Login na conta corrente \n2-Login na conta poupança \n3-Cadastar conta \n0- Voltar")
     resposta_conta = int(input("--->"))
     return resposta_conta
     
@@ -73,4 +73,3 @@ def login_cliente(clientes):
              pass
             
         
-
