@@ -63,7 +63,7 @@ def login_cliente(clientes):
                         print("senha correta")
                         print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
                         break
-
+                break
         except:
              pass
             
