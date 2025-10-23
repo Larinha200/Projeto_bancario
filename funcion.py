@@ -51,17 +51,19 @@ def login_cliente(clientes):
             cliente = clientes.get(cpf)
             if not cliente:
                 print(" CPF não encontrado. Faça o cadastro primeiro.")
-        except:
-            print("Usuario encontrado, insira sua senha")
-            senha = input("------> ")
-        
-            try:
-                # Verifica a senha
+            
+            else:
+                print("Usuario encontrado, insira sua senha")
+                senha = input("------> ")
                 if cliente.getSenha() != senha:
                     print(" Senha incorreta.")
-            except:
-                print("senha corretaaaa")
+                else:
+                    print("senha correta")
+                    print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
+                    break
+
+        except:
+             pass
             
-        print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
-        break
+        
 
