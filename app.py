@@ -6,6 +6,7 @@ clientes = {}
 while True:
     match menu_login():
         
+        
         case 1:
             menu_cadastro(clientes)
   
@@ -13,7 +14,7 @@ while True:
             
             match  menu_principal():
                 case 1:
-                    pass
+                    login_cliente(clientes)
                 case 2:
                     pass
                 case 3:

@@ -7,6 +7,8 @@ def menu_login():
     
 def menu_principal():
     print("1- Cadastro \n2- Contas \n3- Depósito \n4- Saque \n5- Tranferência entre contas \n6- Consulta de saldo \n7- Consulta de extrato ")
+    resposta_principal = int(input("--->"))
+    return resposta_principal
 
 def menu_cadastro(clientes):
     print("\n=== CADASTRO DE CLIENTE ===")
@@ -19,8 +21,6 @@ def menu_cadastro(clientes):
     cliente = Banco.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
     return cliente
     
-   
-
 def listar_clientes(clientes):
     if not clientes:
         print("\n⚠️ Nenhum cliente cadastrado ainda.\n")
@@ -36,3 +36,26 @@ def listar_clientes(clientes):
         print(f"Nascimento: {cliente.getNascimento()}")
         print(f"Senha: {cliente.getSenha()}")
         print("-" * 40)
+
+def cadastro_conta():
+    cpf_cliente = int(input("CPF:"))
+    pass
+
+def login_cliente(clientes):
+    print("\n=== LOGIN ===")
+    cpf = int(input("Digite seu CPF: "))
+    senha = input("Digite sua senha: ")
+
+    # Verifica se o cliente existe
+    cliente = clientes.get(cpf)
+    if not cliente:
+        print("⚠️ CPF não encontrado. Faça o cadastro primeiro.")
+        return None
+
+    # Verifica a senha
+    if cliente.getSenha() != senha:
+        print("❌ Senha incorreta.")
+        return None
+
+    print(f"\n✅ Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
+

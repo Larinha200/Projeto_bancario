@@ -20,6 +20,12 @@ class Banco:
     
     def listar():
         pass
+
+    def criar_poupanca():
+        pass
+
+    def criar_corrente():
+        pass
         
 
 
@@ -162,7 +168,7 @@ class ContaCorrente(Conta):
     def sacar(self, valor: float):
         if valor <= self.__saldo and valor > 0:
             self.__Conta_saldo -= valor
-            self.__Conta_extrato.registrar("Saque", valor, self.__saldo)
+            self.__Conta_extrato.registra ("Saque", valor, self.__saldo)
             return True
         else:
             ("Saldo insuficiente ou valor inválido para saque.")
