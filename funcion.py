@@ -54,13 +54,15 @@ def login_cliente(clientes):
             
             else:
                 print("Usuario encontrado, insira sua senha")
-                senha = input("------> ")
-                if cliente.getSenha() != senha:
-                    print(" Senha incorreta.")
-                else:
-                    print("senha correta")
-                    print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
-                    break
+                
+                while True:
+                    senha = input("------> ")
+                    if cliente.getSenha() != senha:
+                        print(" Senha incorreta.")
+                    else:
+                        print("senha correta")
+                        print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
+                        break
 
         except:
              pass
