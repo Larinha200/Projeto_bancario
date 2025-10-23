@@ -1,12 +1,17 @@
 from classes import *
 
 def menu_login():
-    print("1- Cadastro \n2- Login na conta corrente \n3- Login na conta poupança")
+    print("1- Cadastro \n2- Login ")
     resposta_login = int(input("--->"))
     return resposta_login
+
+def menu_conta():
+    print("1- Login na conta corrente \n2-Login na conta poupança \n3-Cadastar conta")
+    resposta_conta = int(input("--->"))
+    return resposta_conta
     
 def menu_principal():
-    print("1- Cadastro \n2- Contas \n3- Depósito \n4- Saque \n5- Tranferência entre contas \n6- Consulta de saldo \n7- Consulta de extrato ")
+    print("1- Cadastrar outra conta \n2- Contas \n3- Depósito \n4- Saque \n5- Tranferência entre contas \n6- Consulta de saldo \n7- Consulta de extrato ")
     resposta_principal = int(input("--->"))
     return resposta_principal
 
