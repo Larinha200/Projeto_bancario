@@ -15,7 +15,7 @@ def menu_principal():
     resposta_principal = int(input("--->"))
     return resposta_principal
 
-def menu_contas():
+#def menu_contas():
     print("1- Poupança \n2-Corrente")
     resposta_contas = int(input("--->"))
     return resposta_contas
@@ -30,7 +30,8 @@ def menu_cadastro(clientes):
     senha = input("Senha: ")
     cliente = Banco.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
     return cliente
-    
+
+#usado para testes 
 def listar_clientes(clientes):
     if not clientes:
         print("\n Nenhum cliente cadastrado ainda.\n")
@@ -74,7 +75,7 @@ def login_cliente(clientes):
 
 
 def cadastro_conta(clientes):
-    print("\n=== CADASTRO DE CONTA ===")
+    print("\nCadastro conta")
     cpf_cliente = int(input("CPF do cliente: "))
 
     # Verificar se o cliente está cadastrado
@@ -83,7 +84,7 @@ def cadastro_conta(clientes):
         print("Cliente não encontrado. Faça o cadastro primeiro.")
         return
 
-    tipo = int(input("Digite o tipo de conta (1 - Poupança | 2 - Corrente): "))
+    tipo = int(input("Digite o tipo de conta \n1 - Poupança \n2 - Corrente \n----> "))
     senha = input("Defina uma senha para esta conta: ")  # ← Nova parte
 
     # Gerar número de conta
@@ -118,63 +119,48 @@ def login_conta(clientes):
             # Percorre as contas de cada cliente
             for conta in contas:
 
-                if conta.getNumero() == numero and conta.getSenha() == senha:
-                print(f"\n✅ Login bem-sucedido! Bem-vindo(a), {cliente.getNome()}.")
-                return conta  # retorna o objeto da conta logada
-    
-    # Se não encontrar nenhuma conta correspondente
-        print("❌ Número de conta ou senha incorretos.")
-        return None
+                if conta.getNumero() != numero or conta.getSenha() != senha:
+                    # Se não encontrar nenhuma conta correspondente
+                    print("Número de conta ou senha incorretos.")
+            
+                else:
+                    print(f"\nLogin bem-sucedido! Bem-vindo(a), {cliente.getNome()}.")
+                    break
+                      # retorna o objeto da conta logada
                  
             
 
 def depositar(cliente):
-    #Permite escolher uma conta do cliente e realizar um depósito.
     contas = cliente.getConta()
-
-    # Se o cliente não tiver contas
+    
     if not contas:
         print("Este cliente não possui contas cadastradas.")
         return
-
-    # Lista todas as contas do cliente
-    print("\n=== CONTAS DISPONÍVEIS ===")
+    
+    print("\ncontas ")
     for conta in contas:
-        print(f"Conta {conta.getNumero()} | Saldo: R${conta._Conta__saldo:.2f}")
-
-    # Escolhe a conta
+        print(f"Conta {conta.getNumero()} | Saldo: R${conta.getSaldo():.2f}")
     try:
         numero = int(input("Digite o número da conta para depósito: "))
     except ValueError:
         print("Entrada inválida.")
         return
-
-    # Encontra a conta correspondente
+    
     conta_escolhida = None
+    
     for conta in contas:
         if conta.getNumero() == numero:
             conta_escolhida = conta
             break
-
+    
     if not conta_escolhida:
         print("Conta não encontrada.")
         return
-
-    # Pede o valor do depósito
     try:
         valor = float(input("Digite o valor do depósito: "))
     except ValueError:
         print("Valor inválido.")
         return
-
-    #valor menor que 0
-    if valor <= 0:
-        print("Erro: o valor do depósito deve ser positivo.")
-        return
-
-    # Realiza o depósito
-    conta_escolhida._Conta__saldo += valor
-    conta_escolhida._Conta__extrato.registrar("Depósito", valor, conta_escolhida._Conta__saldo)
-
-    print(f"\nDepósito de R${valor:.2f} realizado com sucesso na conta {conta_escolhida.getNumero()}.")
-    print(f"Saldo atual: R${conta_escolhida._Conta__saldo:.2f}")
+    
+    if conta_escolhida.depositar(valor):  # Chama o método da classe
+        print(f"Saldo atual: R${conta_escolhida.getSaldo():.2f}")
