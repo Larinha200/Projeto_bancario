@@ -8,14 +8,7 @@ while True:
         case 1:#cadastro de cliente
             menu_cadastro(clientes)
         case 2:#cadastro de conta
-            pass 
-            match menu_contas():
-                case 1:
-                    pass
-                case 2:
-                    pass
-                case _:
-                    print("Opção invalida!")
+            cadastro_conta(clientes)  
             
         case 3:
             login_cliente(clientes)
@@ -94,9 +87,7 @@ while True:
                     
                     case _:
                         print("Opção invalida!")
-
-        case 4:
-            cadastro_conta(clientes)      
+   
         case 0:
             print("Obrigada por utilizar nosso banco! ")
             break
