@@ -27,19 +27,19 @@ while True:
                                     pass
 
                                 case 3:#depósito
-                                    depositar(Conta)
+                                    Conta.depositar()
 
                                 case 4:#saque
-                                    sacar(Conta)
+                                    Conta.sacar()
 
                                 case 5:#tranfarencia entre contas
-                                    transferir(Conta)
+                                    Conta.transferir()
 
                                 case 6:#Consultar saldo
-                                    consultar_saldo(Conta)
+                                    Conta.consultar_saldo()
 
                                 case 7:#Consultar extrato
-                                    mostrar_extrato(Conta)
+                                    Conta.mostrar_extrato()
 
                                 
                                 case 0:
@@ -61,19 +61,19 @@ while True:
                                 pass
 
                             case 3:#depósito
-                                depositar(Conta)
+                                Conta.depositar()
 
                             case 4:#saque
-                                sacar(Conta)
+                                Conta.sacar()
 
                             case 5:#tranfarencia entre contas
-                                transferir(Conta)
+                                Conta.transferir()
 
                             case 6:#Consultar saldo
-                                consultar_saldo(Conta)
+                                Conta.consultar_saldo()
 
                             case 7:#Consultar extrato
-                                mostrar_extrato(Conta)
+                                Conta.mostrar_extrato()
 
                         
                             case 0:
