@@ -52,7 +52,7 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 
 ### Diagrama de Classes UML →
 
-*diagraminha aqui com talvez uma breve explicaçãozinha????*
+Link: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UXFPV1pjd1BqZiswZW5aYXBKdHpPU2ttSWs0SVRMRTFpRFYzRzNRS3lvL28rMVdBYTdCdVZuSklVcnl6MkpadzY5TUpBYnFPbmFFeXp3M2x4OTZRUWdFUEpMK09MRmJUU1JSQ3RoNGthWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=39372193831
 
 ![Image](https://github.com/user-attachments/assets/ba2b7ec5-1107-4e15-813a-ff9b4e3f859c)
 
