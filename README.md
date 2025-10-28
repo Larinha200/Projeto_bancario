@@ -48,7 +48,7 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 <br><br>✩ ***Um cliente pode possuir mais de uma conta no banco.***
 <br><br>✩ ***Todas as operações devem ser registradas em um extrato vinculado à conta.***
 
-![Image](https://github.com/user-attachments/assets/ba2b7ec5-1107-4e15-813a-ff9b4e3f859c
+![Image](https://github.com/user-attachments/assets/ba2b7ec5-1107-4e15-813a-ff9b4e3f859c)
 
 ### Diagrama de Classes UML →
 
