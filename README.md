@@ -72,3 +72,108 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 
 
 ### Explicação do código em partes → ✩ app.py
+
+
+
+    from funcion import*  #Está importando todas as funções do arquivo funcion.py
+    from classes import*  #Está importando todas as classes do arquivos classes.py
+
+
+      clientes = {}  #Cria um dicion[ario onde guardara informações sobre os clientes e suas contas
+      while True:  #Inicia um looping infinito (só ira encerrar quando tiver um break)
+          match menu_login(): #Chama a função menu_login() -> O match testa o valor de uma expressão e executa o bloco correspondente ao padrão que combina com esse valor
+          
+            case 1:#cadastro de cliente 
+                menu_cadastro(clientes) 
+                
+                  case 2:#cadastro de conta
+                  cadastro_conta(clientes)  
+            
+        case 3: #login de clientes
+            login_cliente(clientes)
+            
+            while True: #Abre outro looping
+                match menu_conta(): #Chama menu_conta() 
+                        
+                    case 1:  #Se o usuário escolher 1, ele entra no sistema da conta corrente.
+                        login_conta(clientes) 
+                        
+                        while True: #Outro loop começa.
+                            match  menu_principal():
+                            
+                                case 1:#cadastrar outra conta
+                                    menu_contas()   #
+                                    pass   #Evita erro de bloco vazio 
+
+                                case 2:#contas
+                                    pass   #Evita erro de bloco vazio 
+
+                                case 3:#depósito
+                                    depositar(cliente)  #Chama a função depositar() 
+
+                                case 4:#saque
+                                    Conta.sacar(Conta)  
+
+                                case 5:#tranfarencia entre contas
+                                    Conta.transferir(Conta, destino, valor)
+
+                                case 6:#Consultar saldo
+                                    Conta.consultar_saldo(Conta)  #Exibe o saldo atual da conta.
+
+                                case 7:#Consultar extrato
+                                    Conta.mostrar_extrato()   #Exibe todas as movimentações da conta.
+
+                                
+                                case 0:    
+                                    break    #Sai do loop atual (menu principal)
+                                    continue   #Pula para o início do próximo loop
+
+                                case _:
+                                    print("Opção invalida!")  #Executado se o usuário digitar uma opção inexistente.
+                                
+                        
+                    #login na conta poupança
+                    case 2:
+                        match menu_principal():
+                            case 1:#cadastrar outra conta
+                                menu_contas()
+                                pass   #Evita erro de bloco vazio 
+                            
+                            case 2:#contas
+                                pass   #Evita erro de bloco vazio 
+
+                            case 3:#depósito
+                                depositar(cliente)
+
+                            case 4:#saque
+                                Conta.sacar()
+
+                            case 5:#tranfarencia entre contas
+                                Conta.transferir(Conta, destino, valor)
+
+                            case 6:#Consultar saldo
+                                Conta.consultar_saldo()
+
+                            case 7:#Consultar extrato
+                                Conta.mostrar_extrato()
+
+                        
+                            case 0:
+                                break  #Sai do segundo while True (menu_conta), voltando para o menu de login.
+                          
+                            
+                            case _:
+                                print("Opção invalida!")  #Exibe mensagem se o usuário digitar uma opção que não existe.
+
+                    case 0:
+                        break
+                    
+                    case _:
+                        print("Opção invalida!")  #Exibe mensagem se o usuário digitar uma opção que não existe.
+   
+        case 0:
+            print("Obrigada por utilizar nosso banco! ")  #Sai do primeiro while True e encerra o programa.
+            break
+        
+        case _:
+            print("Opção invalida!")  #Exibe mensagem se o usuário digitar algo fora das opções do menu principal.
