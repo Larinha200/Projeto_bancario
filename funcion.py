@@ -103,7 +103,7 @@ def cadastro_conta(clientes, Cliente):
         
         while True:
             senha = input("------> ")
-            dic_cliente= Cliente.getConta()
+            dic_cliente= cliente.getConta()
             dic_cliente['Tipo']= tipo
             dic_cliente['Cpf']= cliente
             dic_cliente['senha']= senha
