@@ -1,4 +1,4 @@
-
+import os
 from classes import Banco, ContaCorrente, ContaPoupanca
 
 banco = Banco()
@@ -97,4 +97,8 @@ def transferir(conta):
 
 def consultar_saldo(conta):
     print(f"Saldo: R${conta.get_saldo():.2f}")
+    
 
+def LP():
+    os.system('pause')
+    os.system('cls')
