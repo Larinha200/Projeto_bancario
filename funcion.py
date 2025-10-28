@@ -20,16 +20,16 @@ def menu_principal():
     #resposta_contas = int(input("--->"))
     #return resposta_contas
 
-def menu_cadastro(clientes):
-    print("\nCadastro de cliente")
-    nome = input("Nome completo: ")
-    cpf = int(input("CPF (somente números): "))
-    telefone = int(input("Telefone (somente números): "))
-    endereco = input("Endereço: ")
-    nascimento = input("Data de nascimento (DD/MM/AAAA): ")
-    senha = input("Senha: ")
-    cliente = Banco.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
-    return cliente
+# def menu_cadastro(clientes):
+#     print("\nCadastro de cliente")
+#     nome = input("Nome completo: ")
+#     cpf = int(input("CPF (somente números): "))
+#     telefone = int(input("Telefone (somente números): "))
+#     endereco = input("Endereço: ")
+#     nascimento = input("Data de nascimento (DD/MM/AAAA): ")
+#     senha = input("Senha: ")
+#     cliente = Banco.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes)
+#     return cliente
 
 #usado para testes 
 #  def listar_clientes(clientes):

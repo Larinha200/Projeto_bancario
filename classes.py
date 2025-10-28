@@ -3,18 +3,16 @@ from abc import ABC, abstractmethod #importar a biblioteca ABC
 #criação das classes 
 class Banco:
     def __init__(self):
-        self.__clientes = {}# Dicionário para guardar os clientes do banco
-    
-    
-    def cadastrar_cliente(self,nome, cpf, telefone, senha, endereco, nascimento, clientes):
-        # Se CPF já cadastrado, mostra aviso e retorna o cliente existente
-        if cpf in clientes:
-            print(f"\n Já existe um cliente com o CPF {cpf} cadastrado!")
-            return clientes[cpf]
+        self.clientes = {}  # {cpf: cliente}
 
-        # Cria e adiciona novo cliente ao dicionario
+    def cadastrar_cliente(self, nome, cpf, telefone, senha, endereco, nascimento):
+        if cpf in self.clientes:
+            print(f"\nJá existe um cliente com o CPF {cpf} cadastrado!")
+            return self.clientes[cpf]
+
         novo_cliente = Cliente(nome, cpf, telefone, senha, endereco, nascimento)
-        self.__clientes[cpf] = novo_cliente
+        self.clientes[cpf] = novo_cliente
+        print(f"\nCliente {nome} cadastrado com sucesso!")
         return novo_cliente
 
 

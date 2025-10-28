@@ -6,7 +6,13 @@ clientes = {}
 while True:
     match menu_login():
         case 1:#cadastro de cliente
-            menu_cadastro(clientes)
+            nome = input("Nome completo: ")
+            cpf = int(input("CPF (somente números): "))
+            telefone = int(input("Telefone (somente números): "))
+            endereco = input("Endereço: ")
+            nascimento = input("Data de nascimento (DD/MM/AAAA): ")
+            senha = input("Senha: ")
+            banco.cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento)
         
         case 2:  # Cadastro de conta
             cpf = int(input("CPF do cliente: "))
