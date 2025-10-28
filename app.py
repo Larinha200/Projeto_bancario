@@ -5,64 +5,85 @@ from classes import*
 clientes = {}
 while True:
     match menu_login():
-        case 1:
+        case 1:#cadastro de cliente
             menu_cadastro(clientes)
-            
-        case 2:
-            login_cliente(clientes)
-            match menu_conta():
-                #Login na conta corrente 
-                case 1:  
-                    match  menu_principal():
-                        case 1:
-                            pass
-                        case 2:
-                            pass
-                        case 3:
-                            depositar(Conta)
-                        case 4:
-                            sacar(Conta)
-                        case 5:
-                            transferir(Conta)
-                        case 6:
-                            consultar_saldo(Conta)
-                        case 7:
-                            mostrar_extrato(Conta)
-                        case 8:
-                            pass
-                        case _:
-                            pass
-                #login na conta poupança
-                case 2:
-                    match menu_principal():
-                        case 1:
-                            pass
-                        case 2:
-                            pass
-                        case 3:
-                            depositar(Conta)
-                        case 4:
-                            sacar(Conta)
-                        case 5:
-                            transferir(Conta)
-                        case 6:
-                            consultar_saldo(Conta)
-                        case 7:
-                            mostrar_extrato(Conta)
-                        case 8:
-                            pass
-                        case _:
-                            pass
-                case 3:
-                    #cadastrar conta
-                    listar_clientes(clientes)#tirar essa função daqui
-
-                case 0:
-                    break
-                case _ :
+        case 2:#cadastro de conta
+            pass 
+            match menu_contas():
+                case 1:
                     pass
+                case 2:
+                    pass
+                
+            
+        case 3:
+            login_cliente(clientes)
+            while True:
+                match menu_conta():
+                    #Login na conta corrente 
+                    case 1:  
+                        while True:
+                            match  menu_principal():
+                                case 1:#cadastrar outra conta
+                                    menu_contas()
+                                    pass
+
+                                case 2:#contas
+                                    pass
+
+                                case 3:#depósito
+                                    depositar(Conta)
+
+                                case 4:#saque
+                                    sacar(Conta)
+
+                                case 5:#tranfarencia entre contas
+                                    transferir(Conta)
+
+                                case 6:#Consultar saldo
+                                    consultar_saldo(Conta)
+
+                                case 7:#Consultar extrato
+                                    mostrar_extrato(Conta)
+
+                                
+                                case 0:
+                                    break
+                                    continue
+                        
+                    #login na conta poupança
+                    case 2:
+                        match menu_principal():
+                            case 1:#cadastrar outra conta
+                                menu_contas()
+                                pass
+                            
+                            case 2:#contas
+                                pass
+
+                            case 3:#depósito
+                                depositar(Conta)
+
+                            case 4:#saque
+                                sacar(Conta)
+
+                            case 5:#tranfarencia entre contas
+                                transferir(Conta)
+
+                            case 6:#Consultar saldo
+                                consultar_saldo(Conta)
+
+                            case 7:#Consultar extrato
+                                mostrar_extrato(Conta)
+
+                        
+                            case 0:
+                                break
+                                continue
+
+                    case 0:
+                        break
+                
         case 0:
-            print("Obrigada por usar nosso banco =)")
+            print("Obrigada por usar nosso banco ")
             break
-        case _ :
-            pass
