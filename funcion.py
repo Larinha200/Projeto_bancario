@@ -55,7 +55,7 @@ def login_cliente(clientes):
         cpf = int(input("Digite seu CPF: "))
         
         # Verifica se o cliente existe
-        cliente = clientes.getCpf(cpf)
+        cliente = clientes.get(cpf)
         if not cliente:
             print(" CPF não encontrado. Faça o cadastro primeiro.")
         
@@ -77,7 +77,7 @@ def cadastro_conta(clientes):
     cpf_cliente = int(input("CPF do cliente: "))
 
     # Verificar se o cliente está cadastrado
-    cliente = clientes.getCpf(cpf_cliente)
+    cliente = clientes.get(cpf_cliente)
     if not cliente:
         print("Cliente não encontrado. Faça o cadastro primeiro.")
         return
@@ -111,7 +111,7 @@ def login_conta(clientes):
                 cpf = int(input("Digite seu CPF: "))
 
                 # Verifica se o cliente existe
-                cliente = clientes.getCpf(cpf)
+                cliente = clientes.get(cpf)
                 if not cliente:
                     print(" Cliente não encontrado. Faça o cadastro primeiro.")
                 
