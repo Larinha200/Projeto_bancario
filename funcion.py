@@ -102,8 +102,9 @@ def cadastro_conta(clientes):
     cliente.add_conta(conta)
     print(f"Conta vinculada ao cliente {cliente.getNome()} ({cliente.getCpf()}).")
 
-def login_conta(clientes):
-    
+def login_conta(clientes, Conta_):
+    conta_corrente = ContaCorrente.getSenha()
+    conta_poupanca = ContaPoupanca.getSenha()
     match menu_conta():
         case 1:
             while True:
@@ -118,7 +119,7 @@ def login_conta(clientes):
                 else:
                     print("cliente encontrado, insira senha da conta ")
                     senha = input("------> ")
-                    if ContaCorrente.getSenha() != senha:
+                    if conta_corrente.getSenha() != senha:
                         print(" Senha incorreta.")
                     else:
                         print("senha correta")
