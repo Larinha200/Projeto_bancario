@@ -16,7 +16,7 @@ while True:
                 match menu_conta():
                         
                     case 1:  
-                        login_conta(clientes)
+                        login_conta(clientes, ContaCorrente, ContaPoupanca)
                         while True:
                             match  menu_principal():
                                 case 1:#cadastrar outra conta
