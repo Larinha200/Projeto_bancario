@@ -32,21 +32,22 @@ def menu_cadastro(clientes):
     return cliente
 
 #usado para testes 
-def listar_clientes(clientes):
-    if not clientes:
-        print("\n Nenhum cliente cadastrado ainda.\n")
-        return
+#  def listar_clientes(clientes):
+#     if not clientes:
+#         print("\n Nenhum cliente cadastrado ainda.\n")
+#         return
 
-    print("\nLista de clientes")
-    for _, cliente in clientes.items():
-        print(f"\nID: {cliente.getId()}")
-        print(f"Nome: {cliente.getNome()}")
-        print(f"CPF: {cliente.getCpf()}")
-        print(f"Telefone: {cliente.getTelefone()}")
-        print(f"Endereço: {cliente.getEndereco()}")
-        print(f"Nascimento: {cliente.getNascimento()}")
-        print(f"Senha: {cliente.getSenha()}")
-        print("-" * 40)
+#     print("\nLista de clientes")
+#     for _, cliente in clientes.items():
+#         print(f"\nID: {cliente.getId()}")
+#         print(f"Nome: {cliente.getNome()}")
+#         print(f"CPF: {cliente.getCpf()}")
+#         print(f"Telefone: {cliente.getTelefone()}")
+#         print(f"Endereço: {cliente.getEndereco()}")
+#         print(f"Nascimento: {cliente.getNascimento()}")
+#         print(f"Senha: {cliente.getSenha()}")
+#         print("-" * 40)
+
 
 
 
