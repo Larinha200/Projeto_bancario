@@ -91,7 +91,7 @@ def cadastro_conta(clientes, Cliente):
             case _:
                 print("opção invalida")
         
-
+    cpf = int(input("Digite o CPF do cliente: "))
 
     # Verifica se o cliente existe
     cliente = clientes.get(cpf)
