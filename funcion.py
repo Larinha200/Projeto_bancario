@@ -47,9 +47,7 @@ def listar_clientes(clientes):
         print(f"Senha: {cliente.getSenha()}")
         print("-" * 40)
 
-def cadastro_conta():
-    cpf_cliente = int(input("CPF:"))
-    pass
+
 
 def login_cliente(clientes):
     while True:
@@ -74,41 +72,35 @@ def login_cliente(clientes):
                     break
             break
 
+def cadastro_conta(clientes):
+    print("\n=== CADASTRO DE CONTA ===")
+    cpf_cliente = int(input("CPF do cliente: "))
 
-def cadastro_conta(clientes, Cliente):
-    print("vc esta no cadastro de conta ")
-    while True:
-        match menu_contas():
-            case 1:
-                tipo = "Poupança"
-                break
-                continue
-            
-            case 2:
-                tipo = "Corrente"
-                break
-                continue
-            case _:
-                print("opção invalida")
-        
-    cpf = int(input("Digite o CPF do cliente: "))
-
-    # Verifica se o cliente existe
-    cliente = clientes.get(cpf)
+    # Verificar se o cliente está cadastrado
+    cliente = clientes.get(cpf_cliente)
     if not cliente:
-        print(" CPF não encontrado. Faça o cadastro primeiro.")
-    
+        print("Cliente não encontrado. Faça o cadastro primeiro.")
+        return
+
+    tipo = int(input("Digite o tipo de conta (1 - Poupança | 2 - Corrente): "))
+    senha_conta = input("Defina uma senha para esta conta: ")  # ← Nova parte
+
+    # Gerar número de conta
+    numero_conta = len(cliente.getConta()) + 1  
+
+    if tipo == 1:
+        conta = ContaPoupanca(numero_conta, cliente, senha_conta)
+        print(f" Conta Poupança criada com sucesso! Número: {numero_conta}")
+    elif tipo == 2:
+        conta = ContaCorrente(numero_conta, cliente, senha_conta)
+        print(f"Conta Corrente criada com sucesso! Número: {numero_conta}")
     else:
-        print("Usuario encontrado, insira sua senha")
-        
-        while True:
-            senha = input("------> ")
-            dic_cliente= cliente.getConta()
-            dic_cliente['Tipo']= tipo
-            dic_cliente['Cpf']= cliente
-            dic_cliente['senha']= senha
-            print("\n--- Dados da conta ---")
-            for chave, valor in dic_cliente.items():  # corrigido: 'items()', não 'itens()'
-                print(f"{chave}: {valor}")
+        print("Tipo de conta inválido.")
+        return
+
+    # Vincular conta ao cliente
+    cliente.add_conta(conta)
+    print(f"Conta vinculada ao cliente {cliente.getNome()} ({cliente.getCpf()}).")
+
                 
            

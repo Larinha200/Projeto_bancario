@@ -42,7 +42,7 @@ class Cliente(Banco):
         self.__endereco = endereco
         self.__nascimento = nascimento
         self.__senha = senha
-        self.__conta = {}
+        self.__conta = []
         super().__init__()
         
 
@@ -71,7 +71,12 @@ class Cliente(Banco):
     def getNascimento(self):
         return self.__nascimento
     
-
+    #Def para adicionar conta
+    def add_conta(self, conta):
+        return self.__conta.append(conta)
+    
+    
+# Interface para operações financeiras
 class OperacoesFinanceiras(ABC):
     @abstractmethod
     def depositar(self, valor: float):
@@ -105,10 +110,10 @@ class Extrato:
             return (f"{transacao['tipo']}: R${transacao['valor']:.2f} | Saldo: R${transacao['saldo']:.2f}")
 
 class Conta(OperacoesFinanceiras):
-    def __init__(self, conta, numero: int, cliente: Cliente):
-        self.__conta = conta
+    def __init__(self, numero: int, cliente: Cliente, senha: str):
         self.__numero = numero
         self.__cliente = cliente
+        self.__senha = senha  # ← Nova senha da conta
         self.__saldo = 0.0
         self.__extrato = Extrato()
         super().__init__()
@@ -126,9 +131,8 @@ class Conta(OperacoesFinanceiras):
     def getConta(self):
         return self.__conta
     
-    #Def para adicionar conta
-    def add_conta(self, conta):
-        return self.__contas.append(conta)
+    def getSenha(self):
+        return self.__senha
     
 
     #mostrar extrato da conta
@@ -167,8 +171,8 @@ class Conta(OperacoesFinanceiras):
 
 
 class ContaCorrente(Conta):
-    def __init__(self, numero, cliente):
-        super().__init__(numero, cliente)
+    def __init__(self, numero, cliente, senha):
+        super().__init__(numero, cliente, senha)
 
     #sacar valor na conta
     def sacar(self, valor: float):
@@ -182,8 +186,8 @@ class ContaCorrente(Conta):
 
 
 class ContaPoupanca(Conta):
-    def __init__(self, numero, cliente):
-        super().__init__(numero, cliente)
+    def __init__(self, numero, cliente, senha):
+        super().__init__( numero, cliente, senha)
 
     SALDO_MINIMO = 100.0
 
