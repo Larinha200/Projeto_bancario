@@ -5,16 +5,16 @@ class Banco:
     def __init__(self):
          pass
     
-    novo_cliente= {}
+    novo_cliente= {}# Dicionário para guardar os clientes do banco
     
     @staticmethod
     def cadastrar_cliente(nome, cpf, telefone, senha, endereco, nascimento, clientes):
-        # Se CPF já cadastrado
+        # Se CPF já cadastrado, mostra aviso e retorna o cliente existente
         if cpf in clientes:
             print(f"\n Já existe um cliente com o CPF {cpf} cadastrado!")
             return clientes[cpf]
 
-        # Cria e adiciona novo cliente
+        # Cria e adiciona novo cliente ao dicionario
         novo_cliente = Cliente(nome, cpf, telefone, senha, endereco, nascimento)
         clientes[cpf] = novo_cliente
         return novo_cliente
@@ -31,10 +31,11 @@ class Banco:
 
 
 class Cliente(Banco):
-    count = 0
+    count = 0 # contador para dar um "id" diferente pra cada cliente
+
     def __init__(self, nome: str, cpf:int, telefone:int, senha: str, endereco:str,nascimento:int ):
-        Cliente.count += 1
-        self.__id = Cliente.count
+        Cliente.count += 1 # aumenta o contador
+        self.__id = Cliente.count # cria um id único pra cada cliente
         
         self.__nome = nome
         self.__cpf = cpf
@@ -42,8 +43,8 @@ class Cliente(Banco):
         self.__endereco = endereco
         self.__nascimento = nascimento
         self.__senha = senha
-        self.__conta = []
-        super().__init__()
+        self.__conta = [] # lista que vai guardar as contas do cliente
+        super().__init__() # chama o construtor da classe "Banco"
         
 
 #GETS para acessar atributos privados da classe cliente
@@ -71,21 +72,28 @@ class Cliente(Banco):
     def getNascimento(self):
         return self.__nascimento
     
-    #Def para adicionar conta
+    
+    
+    #Def para adicionar conta ao cliente
     def add_conta(self, conta):
         return self.__conta.append(conta)
     
     
+    
+    
 # Interface para operações financeiras
 class OperacoesFinanceiras(ABC):
+    #metodo abstrato para depositar
     @abstractmethod
     def depositar(self, valor: float):
         pass
 
+    #metodo abstrato para sacar
     @abstractmethod
     def sacar(self, valor: float):
         pass
-
+    
+    #metodo abstrato para transferir
     @abstractmethod
     def transferir(self, destino, valor: float):
         pass
@@ -93,7 +101,7 @@ class OperacoesFinanceiras(ABC):
     
 class Extrato:
     def __init__(self):
-        self.__transacoes = []
+        self.__transacoes = [] # lista de dicionários com as transações
 
     # Adiciona um dicionário com os detalhes da transacao à lista de transacoes
     def registrar(self, tipo: str, valor: float, saldo: float):
@@ -108,6 +116,7 @@ class Extrato:
         # .2f significa que pode ter dois caracteres depois da virgula
         for transacao in self.__transacoes:
             return (f"{transacao['tipo']}: R${transacao['valor']:.2f} | Saldo: R${transacao['saldo']:.2f}")
+
 
 class Conta(OperacoesFinanceiras):
     def __init__(self, numero: int, cliente: Cliente, senha: str):
@@ -148,32 +157,30 @@ class Conta(OperacoesFinanceiras):
         else:
             ("Valor de depósito inválido.")
 
-    #metodo abstrato para sacar
-    @abstractmethod
-    def sacar(self, valor: float):
-        pass
 
     #transferir saldo para uma conta
     def transferir(self, destino, valor: float):
         if self.__sacar(valor):
             destino.depositar(valor)
-            self.__extrato.registrar(f"Transferência para conta {destino.numero}", valor, self.__saldo)
-            destino.__Conta_extrato.registrar(f"Transferência recebida de conta {self.__numero}", valor, destino.saldo)
+            self.__extrato.registrar(f"Transferência para conta {destino.getNumero()}", valor, self.__saldo)
+            print(f"Transferência de R${valor:.2f} concluída.")
             return True
         return False
 
-    # Sobrecarga de método para consultar saldo da conta
-    def consultar_saldo(self, formatado: bool = False):
-        if formatado:
-            return (f"Saldo da conta {self.__numero}: R${self.__saldo:.2f}")
-        else:
-            return self.__saldo()
+    # método para consultar o saldo da conta
+    def consultar_saldo(self):
+        return (f"Saldo da conta {self.__numero}: R${self.__saldo:.2f}")
 
 
 class ContaCorrente(Conta):
     def __init__(self, numero, cliente, senha):
+        self.__senha = senha
         super().__init__(numero, cliente, senha)
 
+    #get para senha
+    def getSenha(self):
+        return self.__senha
+    
     #sacar valor na conta
     def sacar(self, valor: float):
         if valor <= self.__saldo and valor > 0:
@@ -187,7 +194,11 @@ class ContaCorrente(Conta):
 
 class ContaPoupanca(Conta):
     def __init__(self, numero, cliente, senha):
+        self.__senha = senha
         super().__init__( numero, cliente, senha)
+        
+    def getSenha(self):
+        return self.__senha
 
     SALDO_MINIMO = 100.0
 

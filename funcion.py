@@ -33,7 +33,7 @@ def menu_cadastro(clientes):
     
 def listar_clientes(clientes):
     if not clientes:
-        print("\n⚠️ Nenhum cliente cadastrado ainda.\n")
+        print("\n Nenhum cliente cadastrado ainda.\n")
         return
 
     print("\n=== LISTA DE CLIENTES CADASTRADOS ===")
@@ -55,7 +55,7 @@ def login_cliente(clientes):
         cpf = int(input("Digite seu CPF: "))
         
         # Verifica se o cliente existe
-        cliente = clientes.get(cpf)
+        cliente = clientes.getCpf(cpf)
         if not cliente:
             print(" CPF não encontrado. Faça o cadastro primeiro.")
         
@@ -77,22 +77,22 @@ def cadastro_conta(clientes):
     cpf_cliente = int(input("CPF do cliente: "))
 
     # Verificar se o cliente está cadastrado
-    cliente = clientes.get(cpf_cliente)
+    cliente = clientes.getCpf(cpf_cliente)
     if not cliente:
         print("Cliente não encontrado. Faça o cadastro primeiro.")
         return
 
     tipo = int(input("Digite o tipo de conta (1 - Poupança | 2 - Corrente): "))
-    senha_conta = input("Defina uma senha para esta conta: ")  # ← Nova parte
+    senha = input("Defina uma senha para esta conta: ")  # ← Nova parte
 
     # Gerar número de conta
     numero_conta = len(cliente.getConta()) + 1  
 
     if tipo == 1:
-        conta = ContaPoupanca(numero_conta, cliente, senha_conta)
+        conta = ContaPoupanca(numero_conta, cliente, senha)
         print(f" Conta Poupança criada com sucesso! Número: {numero_conta}")
     elif tipo == 2:
-        conta = ContaCorrente(numero_conta, cliente, senha_conta)
+        conta = ContaCorrente(numero_conta, cliente, senha)
         print(f"Conta Corrente criada com sucesso! Número: {numero_conta}")
     else:
         print("Tipo de conta inválido.")
@@ -102,5 +102,39 @@ def cadastro_conta(clientes):
     cliente.add_conta(conta)
     print(f"Conta vinculada ao cliente {cliente.getNome()} ({cliente.getCpf()}).")
 
+def login_conta(clientes):
+    
+    match menu_conta():
+        case 1:
+            while True:
+                print("\n LOGIN NA CONTA")
+                cpf = int(input("Digite seu CPF: "))
+
+                # Verifica se o cliente existe
+                cliente = clientes.getCpf(cpf)
+                if not cliente:
+                    print(" Cliente não encontrado. Faça o cadastro primeiro.")
                 
-           
+                else:
+                    print("cliente encontrado, insira senha da conta ")
+                    senha = input("------> ")
+                    if ContaCorrente.getSenha() != senha:
+                        print(" Senha incorreta.")
+                    else:
+                        print("senha correta")
+                        print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
+                        break
+                        continue
+
+            # Se o cliente tem contas cadastradas
+            contas = cliente.getConta()
+            if not contas:
+                print(" Nenhuma conta encontrada para este cliente.")
+             
+            else:
+
+                print(f"\nCliente {cliente.getNome()} possui {len(contas)} conta(s):")
+                for chave, valor in contas.itens():
+                    print(f'{chave}-{valor}')
+
+                
