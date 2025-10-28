@@ -102,7 +102,7 @@ def cadastro_conta(clientes):
     cliente.add_conta(conta)
     print(f"Conta vinculada ao cliente {cliente.getNome()} ({cliente.getCpf()}).")
 
-def login_conta(clientes):
+def login_conta(clientes, ContaCorrente, ContaPoupanca):
     conta_corrente = ContaCorrente.getSenha()
     conta_poupanca = ContaPoupanca.getSenha()
     match menu_conta():
