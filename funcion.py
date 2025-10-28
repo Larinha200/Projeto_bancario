@@ -1,4 +1,4 @@
-from classess import *
+from classes import *
 
 def menu_login():
     print("1- Cadastro de cliente \n2- Cadastro de conta \n3- Login \n0- sair")
