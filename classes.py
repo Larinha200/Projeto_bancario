@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod #importar a biblioteca ABC
 class Banco:
     def __init__(self):
          pass
+    
     novo_cliente= {}
     
     @staticmethod
@@ -41,6 +42,7 @@ class Cliente(Banco):
         self.__endereco = endereco
         self.__nascimento = nascimento
         self.__senha = senha
+        self.__conta = {}
         super().__init__()
         
 
@@ -54,8 +56,8 @@ class Cliente(Banco):
     def getCpf(self):
         return self.__cpf
     
-    def getContas(self):
-        return self.__contas
+    def getConta(self):
+        return self.__conta
     
     def getTelefone(self):
         return self.__telefone
@@ -98,7 +100,7 @@ class Extrato:
 
     #Exibe todas as transações registradas no extrato
     def mostrar(self):
-        # .2f significa que é pode ter dois pontos atras da virgula
+        # .2f significa que pode ter dois caracteres depois da virgula
         for transacao in self.__transacoes:
             return (f"{transacao['tipo']}: R${transacao['valor']:.2f} | Saldo: R${transacao['saldo']:.2f}")
 
@@ -151,7 +153,7 @@ class Conta(OperacoesFinanceiras):
     def transferir(self, destino, valor: float):
         if self.__sacar(valor):
             destino.depositar(valor)
-            self.__extrato.registrar(f"Transferência para conta {destino.numero}", -valor, self.__saldo)
+            self.__extrato.registrar(f"Transferência para conta {destino.numero}", valor, self.__saldo)
             destino.__Conta_extrato.registrar(f"Transferência recebida de conta {self.__numero}", valor, destino.saldo)
             return True
         return False

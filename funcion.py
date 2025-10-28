@@ -73,3 +73,42 @@ def login_cliente(clientes):
                     print(f"\n Login realizado com sucesso! Bem-vindo(a), {cliente.getNome()}!")
                     break
             break
+
+
+def cadastro_conta(clientes, Cliente):
+    print("vc esta no cadastro de conta ")
+    while True:
+        match menu_contas():
+            case 1:
+                tipo = "Poupança"
+                break
+                continue
+            
+            case 2:
+                tipo = "Corrente"
+                break
+                continue
+            case _:
+                print("opção invalida")
+        
+
+
+    # Verifica se o cliente existe
+    cliente = clientes.get(cpf)
+    if not cliente:
+        print(" CPF não encontrado. Faça o cadastro primeiro.")
+    
+    else:
+        print("Usuario encontrado, insira sua senha")
+        
+        while True:
+            senha = input("------> ")
+            dic_cliente= Cliente.getConta()
+            dic_cliente['Tipo']= tipo
+            dic_cliente['Cpf']= cliente
+            dic_cliente['senha']= senha
+            print("\n--- Dados da conta ---")
+            for chave, valor in dic_cliente.items():  # corrigido: 'items()', não 'itens()'
+                print(f"{chave}: {valor}")
+                
+           

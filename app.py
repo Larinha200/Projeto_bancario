@@ -94,7 +94,9 @@ while True:
                     
                     case _:
                         print("Opção invalida!")
-                
+
+        case 4:
+            cadastro_conta(clientes, Cliente)      
         case 0:
             print("Obrigada por utilizar nosso banco! ")
             break
