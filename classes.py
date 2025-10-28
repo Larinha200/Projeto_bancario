@@ -98,6 +98,7 @@ class Extrato:
 
     #Exibe todas as transações registradas no extrato
     def mostrar(self):
+        # .2f significa que é pode ter dois pontos atras da virgula
         for transacao in self.__transacoes:
             return (f"{transacao['tipo']}: R${transacao['valor']:.2f} | Saldo: R${transacao['saldo']:.2f}")
 
@@ -119,6 +120,9 @@ class Conta(OperacoesFinanceiras):
     
     def getSaldo(self):
         return self.__saldo
+
+    def getConta(self):
+        return self.__conta
     
     #Def para adicionar conta
     def add_conta(self, conta):

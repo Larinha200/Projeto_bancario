@@ -14,7 +14,8 @@ while True:
                     pass
                 case 2:
                     pass
-                
+                case _:
+                    print("Opção invalida!")
             
         case 3:
             login_cliente(clientes)
@@ -50,6 +51,10 @@ while True:
                                 case 0:
                                     break
                                     continue
+
+                                case _:
+                                    print("Opção invalida!")
+                                
                         
                     #login na conta poupança
                     case 2:
@@ -80,10 +85,19 @@ while True:
                             case 0:
                                 break
                                 continue
+                            
+                            case _:
+                                print("Opção invalida!")
 
                     case 0:
                         break
+                    
+                    case _:
+                        print("Opção invalida!")
                 
         case 0:
-            print("Obrigada por usar nosso banco ")
+            print("Obrigada por utilizar nosso banco! ")
             break
+        
+        case _:
+            print("Opção invalida!")
