@@ -73,7 +73,6 @@ class Cliente(Banco):
         return self.__nascimento
     
     
-    
     #Def para adicionar conta ao cliente
     def add_conta(self, conta):
         return self.__conta.append(conta)
@@ -122,7 +121,7 @@ class Conta(OperacoesFinanceiras):
     def __init__(self, numero: int, cliente: Cliente, senha: str):
         self.__numero = numero
         self.__cliente = cliente
-        self.__senha = senha  # ← Nova senha da conta
+        self.__senha = senha  # senha da conta
         self.__saldo = 0.0
         self.__extrato = Extrato()
         super().__init__()
@@ -148,14 +147,6 @@ class Conta(OperacoesFinanceiras):
     def mostrar_extrato(self):
         print(f"Extrato da conta {self.__numero}:")
         self.__extrato.mostrar()
-
-    #depositar, somente se o saldo for maior que 0
-    def depositar(self, valor: float):
-        if valor > 0:
-            self.__saldo += valor
-            self.__extrato.registrar("Depósito", valor, self.__saldo)
-        else:
-            ("Valor de depósito inválido.")
 
 
     #transferir saldo para uma conta
