@@ -56,7 +56,7 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 
 (Duas opções de diagrama)
 
-Link no Canva: https://www.canva.com/design/DAG3GQ50JkE/KgJLXkbRUEPcBgUKXVf5VQ/edit?utm_content=DAG3GQ50JkE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton 
+Link no Canva: https://www.canva.com/design/DAG3GQ50JkE/KgJLXkbRUEPcBgUKXVf5VQ/edit?utm_content=DAG3GQ50JkE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UXFPV1pjd1BqZiswZW5aYXBKdHpPU2ttSWs0SVRMRTFpRFYzRzNRS3lvL28rMVdBYTdCdVZuSklVcnl6MkpadzY5TUpBYnFPbmFFeXp3M2x4OTZRUWdFUEpMK09MRmJUU1JSQ3RoNGthWWluRVAxeXRuUUgwWDl3Mk1qRGVRPT0hdjE=?share_link_id=39372193831
 
