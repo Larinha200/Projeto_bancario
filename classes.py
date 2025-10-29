@@ -106,11 +106,17 @@ class ContaCorrente(Conta):
 
 class ContaPoupanca(Conta):
     SALDO_MINIMO = 100.0
+
     def sacar(self, valor):
-        if valor > 0 and (self.get_saldo() - valor) >= self.SALDO_MINIMO:
+        saldo_atual = self.get_saldo()
+
+        # Verifica se o saque deixará o saldo acima do mínimo
+        if saldo_atual - valor >= self.SALDO_MINIMO:
             self._Conta__saldo -= valor
             self._Conta__extrato.registrar("Saque", valor, self.get_saldo())
-            print(f"Saque de R${valor:.2f} realizado.")
+            print(f"Saque de R${valor:.2f} realizado com sucesso!")
             return True
-        print(f"Não é permitido sacar. Saldo mínimo R${self.SALDO_MINIMO:.2f}")
-        return False
+        else:
+            print(f"❌ Saque negado! É necessário manter saldo mínimo de R${self.SALDO_MINIMO:.2f}.")
+            print(f"Saldo atual: R${saldo_atual:.2f}")
+            return False
