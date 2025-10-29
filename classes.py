@@ -59,6 +59,7 @@ class Extrato:
         print("Extrato:")
         for t in self.__transacoes:
             print(f"{t['tipo']}: R${t['valor']:.2f} | Saldo: R${t['saldo']:.2f}")
+            #2.f -> duas casas apos a vírgula
 
 class Conta(OperacoesFinanceiras):
     def __init__(self, numero, cliente, senha):
