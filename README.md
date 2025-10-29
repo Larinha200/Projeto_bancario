@@ -21,6 +21,8 @@ O cenário na qual nos foi designado como equipe visa com que desenvolvamos um s
 <br><br> → ***Sobrecarga de métodos:*** Sobrecarga de método significa ter vários métodos com o mesmo nome numa classe, mas com assinaturas diferentes (parâmetros diferentes).
 <br><br> → ***Interfaces:*** Uma interface de programação (abstrata), que define um contrato de métodos que outras classes devem implementar, ou uma interface gráfica (GUI), que é a parte visual de um programa.
 
+![Image](https://github.com/user-attachments/assets/ba2b7ec5-1107-4e15-813a-ff9b4e3f859c)
+
 ### Porque foram utilizados (resumo) →
 
 ✩ ***Classes e Objetos:*** Usados para representar de forma organizada os elementos do banco, como clientes e contas, deixando o código mais realista e fácil de entender.
@@ -67,7 +69,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
     from abc import ABC, abstractmethod
     
     
-    # CLASSE BANCO
+    # ------------------- CLASSE BANCO -------------------
    
     class Banco:
         def __init__(self):
@@ -88,7 +90,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
         return novo_cliente
 
     
-    # CLASSE CLIENTE
+    # ------------------- CLASSE CLIENTE -------------------
     
     class Cliente:
         count = 0  # Contador estático para gerar IDs únicos
@@ -120,7 +122,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
 
 
 
-    # CLASSE ABSTRATA 
+    # ------------------- CLASSE ABSTRATA -------------------
     
     class OperacoesFinanceiras(ABC):
         # Define métodos abstratos s
@@ -135,7 +137,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
 
 
 
-    # CLASSE EXTRATO
+    #  ------------------- CLASSE EXTRATO -------------------
     
     class Extrato:
         def __init__(self):
@@ -154,7 +156,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
 
 
 
-    # CLASSE BASE - CONTA
+    #  ------------------- CLASSE BASE - CONTA -------------------
     
     class Conta(OperacoesFinanceiras):
         def __init__(self, numero, cliente, senha):
@@ -198,7 +200,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
         self.__extrato.mostrar()
 
 
-    # CLASSE CONTA CORRENTE
+    #  ------------------- CLASSE CONTA CORRENTE -------------------
     
     class ContaCorrente(Conta):
         def sacar(self, valor):
@@ -214,7 +216,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
 
 
     
-    # CLASSE CONTA POUPANÇA
+    # ------------------- CLASSE CONTA POUPANÇA -------------------
     
     class ContaPoupanca(Conta):
         # Define um saldo mínimo que deve permanecer na conta
@@ -243,7 +245,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
     banco = Banco()
     
     
-    #  MENUS DO SISTEMA
+    #  ------------------- MENUS DO SISTEMA -------------------
     
     
     # Exibe o menu inicial de login/cadastro
@@ -273,7 +275,7 @@ Link no Miro: https://miro.com/welcomeonboard/T2xuS1lIOGRRUGpubDhwMDJVdWlieGR1UX
             print("Entrada inválida. Digite apenas números para escolher uma opção.")
     
   
-    # FUNÇÕES AUXILIARES
+    # ------------------- FUNÇÕES AUXILIARES -------------------
   
     
     # Função para cadastrar uma nova conta (corrente ou poupança)
