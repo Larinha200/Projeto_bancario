@@ -117,6 +117,6 @@ class ContaPoupanca(Conta):
             print(f"Saque de R${valor:.2f} realizado com sucesso!")
             return True
         else:
-            print(f"❌ Saque negado! É necessário manter saldo mínimo de R${self.SALDO_MINIMO:.2f}.")
+            print(f"Saque negado! É necessário manter saldo mínimo de R${self.SALDO_MINIMO:.2f}.")
             print(f"Saldo atual: R${saldo_atual:.2f}")
             return False
